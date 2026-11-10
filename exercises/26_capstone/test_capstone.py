@@ -32,7 +32,7 @@ def test_store_complete_and_list(tmp_path):
     assert TodoStore(tmp_path / "t.json").list(include_done=True)[0].done
 
 
-def test_store_remove_and_id_not_reused_while_max_kept(tmp_path):
+def test_store_remove_next_id_follows_max_and_unknown_ids_raise(tmp_path):
     store = TodoStore(tmp_path / "t.json")
     store.add("a")
     store.add("b")
@@ -64,6 +64,29 @@ def test_cli_full_flow(tmp_path):
 
 
 def test_cli_errors(tmp_path):
-    for args in (["done", "9"], ["rm", "9"], ["add", "  "]):
+    path = tmp_path / "t.json"
+    runner.invoke(app, ["--file", str(path), "add", "milk"])
+    before = path.read_text()
+    for args, message in (
+        (["done", "9"], "No task #9"),
+        (["rm", "9"], "No task #9"),
+    ):
         result = run(tmp_path, *args)
         assert result.exit_code == 1
+        assert isinstance(result.exception, SystemExit)
+        assert message in result.output
+        assert path.read_text() == before
+
+    result = run(tmp_path, "add", "  ")
+    assert result.exit_code == 1
+    assert isinstance(result.exception, SystemExit)
+    assert result.output.strip()
+    assert path.read_text() == before
+
+
+def test_cli_short_file_option(tmp_path):
+    path = tmp_path / "short.json"
+    result = runner.invoke(app, ["-f", str(path), "add", "milk"])
+    assert result.exit_code == 0
+    assert result.stdout.strip() == "Added #1: milk"
+    assert json.loads(path.read_text())[0]["title"] == "milk"

@@ -65,8 +65,8 @@ class Suppress:
 
 def read_lines(path: Path) -> Iterator[str]:
     """Generator that yields stripped lines, using `with` so the file always closes.
-    ES: Generador que produce líneas sin espacios, usando `with` para que el
-    archivo siempre se cierre."""
+    ES: Generador que produce las líneas sin espacios en los
+    extremos, usando `with` para que el archivo siempre se cierre."""
     raise NotImplementedError
 
 

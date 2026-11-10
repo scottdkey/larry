@@ -9,9 +9,7 @@ Goals: treat functions as values, write decorators, preserve metadata with
 > conservar los metadatos con `functools.wraps`, y escribir decoradores que
 > reciben argumentos.
 
-## Functions are values
-
-> **ES:** ## Las funciones son valores
+## Functions are values / Las funciones son valores
 
 You can pass functions around like any other object.
 
@@ -44,9 +42,7 @@ add5 = make_adder(5)
 add5(1)  # 6
 ```
 
-## A decorator
-
-> **ES:** ## Un decorador
+## A decorator / Un decorador
 
 A decorator takes a function and returns a replacement.
 
@@ -83,9 +79,7 @@ greet("bo")  # 'HI BO'
 > **ES:** `*args, **kwargs` permite que el wrapper acepte lo mismo que acepta la
 > función original.
 
-## Why `@wraps`?
-
-> **ES:** ## ¿Por qué `@wraps`?
+## Why `@wraps`? / ¿Por qué `@wraps`?
 
 Without it `greet.__name__` would be `"wrapper"` and the docstring lost, which
 hurts debugging and tools. `@wraps(func)` copies the metadata over.
@@ -94,9 +88,7 @@ hurts debugging and tools. `@wraps(func)` copies the metadata over.
 > lo que dificulta la depuración y perjudica a las herramientas.
 > `@wraps(func)` copia los metadatos.
 
-## Keeping state
-
-> **ES:** ## Mantener estado
+## Keeping state / Mantener estado
 
 Because the wrapper is a function object, it can carry attributes, or you can
 use a variable in the enclosing scope.
@@ -121,9 +113,7 @@ A `cache` dict in the outer function gives you memoization the same way.
 > **ES:** Un dict `cache` en la función externa te da memoización de la misma
 > manera. (En código real usa `functools.cache`.)
 
-## Decorators with arguments
-
-> **ES:** ## Decoradores con argumentos
+## Decorators with arguments / Decoradores con argumentos
 
 `@repeat(3)` means "call `repeat(3)`, and use what it returns as the
 decorator". So you need one more layer: a factory returning the decorator.
@@ -152,9 +142,7 @@ def ping() -> None:
     print("ping")
 ```
 
-## Typing decorators
-
-> **ES:** ## Tipado de decoradores
+## Typing decorators / Tipado de decoradores
 
 With PEP 695 syntax a decorator that preserves the signature looks like:
 
@@ -176,9 +164,7 @@ untyped version makes sense.
 > `*args`/`**kwargs` en el wrapper. No te preocupes por el tipado hasta que la
 > versión sin tipos tenga sentido.
 
-## Gotchas
-
-> **ES:** ## Trampas comunes
+## Gotchas / Trampas comunes
 
 - Forgetting `return wrapper` makes the decorated name `None`.
 - Forgetting to return `func(...)`'s result swallows the return value.
@@ -195,9 +181,7 @@ untyped version makes sense.
 > - Los decoradores se ejecutan al momento de la definición; el wrapper se
 >   ejecuta al momento de la llamada.
 
-## Exercises
-
-> **ES:** ## Ejercicios
+## Exercises / Ejercicios
 
 Files:
 

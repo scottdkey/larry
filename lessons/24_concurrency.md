@@ -183,6 +183,8 @@ uv run pytest exercises/24_concurrency
 ```
 
 Optional experiment: time `map_threads(count_primes, [200_000] * 4, 4)` against
-`map_processes(...)` to see the GIL at work.
+`map_processes(...)` to see the GIL at work. Run it from a script and put the calls under
+`if __name__ == "__main__":`; on macOS and Windows, processes re-import your
+file, and without the guard they would re-run the top-level code.
 
-> **ES:** Experimento opcional: mide el tiempo de `map_threads(count_primes, [200_000] * 4, 4)` frente a `map_processes(...)` para ver el GIL en acción.
+> **ES:** Experimento opcional: mide el tiempo de `map_threads(count_primes, [200_000] * 4, 4)` frente a `map_processes(...)` para ver el GIL en acción. Ejecútalo desde un script y pon las llamadas dentro de `if __name__ == "__main__":`; en macOS y Windows los procesos vuelven a importar tu archivo y, sin esa guarda, repetirían el código de nivel superior.

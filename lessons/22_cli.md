@@ -181,7 +181,7 @@ from typer.testing import CliRunner
 runner = CliRunner()
 result = runner.invoke(app, ["add", "2", "3"])
 assert result.exit_code == 0
-assert result.stdout.strip() == "5"
+assert result.stdout.strip() == "5"  # stdout only; use result.output for everything
 ```
 
 Test the exit code and the output. Test the failure paths too.

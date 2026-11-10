@@ -151,7 +151,7 @@ inside, exactly on, and just outside each edge.
 
 > **ES:** Las fronteras son donde se esconden los mutantes. Para una verificación de rango, prueba el valor justo dentro, exactamente en el borde y justo fuera de cada extremo.
 
-## Gotchas / Errores comunes
+## Gotchas / Trampas comunes
 
 - A test with no `assert` always passes. Check that yours can fail.
 - `assert x == y, "message"` is fine, but pytest's own output is usually

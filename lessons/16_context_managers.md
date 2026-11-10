@@ -9,9 +9,7 @@ with `contextlib.contextmanager`, and as classes with `__enter__`/`__exit__`.
 > managers como generadores con `contextlib.contextmanager`, y como clases con
 > `__enter__`/`__exit__`.
 
-## The `with` statement
-
-> **ES:** ## La sentencia `with`
+## The `with` statement / La sentencia `with`
 
 You have seen this already:
 
@@ -33,9 +31,7 @@ state.
 > ejecuta la limpieza. Reemplaza a `try`/`finally` para recursos: archivos,
 > locks, conexiones a bases de datos, estado temporal.
 
-## The generator way
-
-> **ES:** ## La forma con generadores
+## The generator way / La forma con generadores
 
 `@contextmanager` turns a generator with a single `yield` into a context
 manager. Code before `yield` is setup, code after is cleanup.
@@ -84,9 +80,7 @@ with opened("x") as value:
     ...
 ```
 
-## The class way
-
-> **ES:** ## La forma con clases
+## The class way / La forma con clases
 
 Implement two methods.
 
@@ -141,9 +135,7 @@ The standard library ships this as `contextlib.suppress`.
 
 > **ES:** La biblioteca estándar incluye esto como `contextlib.suppress`.
 
-## Choosing
-
-> **ES:** ## Cómo elegir
+## Choosing / Cómo elegir
 
 - Generator style: short, linear setup/cleanup. Usually the best default.
 - Class style: when the manager carries state, is reusable, or needs to
@@ -155,9 +147,7 @@ The standard library ships this as `contextlib.suppress`.
 > - Estilo clase: cuando el manager mantiene estado, es reutilizable o necesita
 >   inspeccionar la excepción.
 
-## Generators and `with`
-
-> **ES:** ## Generadores y `with`
+## Generators and `with` / Generadores y `with`
 
 A `with` inside a generator keeps the resource open while the generator is
 suspended, and closes it when the generator finishes or is closed.
@@ -173,9 +163,7 @@ def read_lines(path: Path) -> Iterator[str]:
             yield line.strip()
 ```
 
-## Gotchas
-
-> **ES:** ## Trampas comunes
+## Gotchas / Trampas comunes
 
 - Swallowing exceptions by accident: returning `True` from `__exit__` hides
   bugs. Return `False`/`None` unless that is the point.
@@ -191,9 +179,7 @@ def read_lines(path: Path) -> Iterator[str]:
 > - Los tests que tocan archivos deben usar `tmp_path` de pytest, nunca rutas
 >   reales.
 
-## Exercises
-
-> **ES:** ## Ejercicios
+## Exercises / Ejercicios
 
 Files:
 

@@ -39,7 +39,7 @@ def min_max(numbers: list[int]) -> tuple[int, int]:
 def shared_sorted(a: list[str], b: list[str]) -> list[str]:
     """Return the sorted list of distinct items present in both a and b (use sets).
 
-    ES: Devuelve la lista ordenada de elementos distintos presentes en a y b.
+    ES: Devuelve la lista ordenada de elementos distintos presentes en a y b (usa sets).
     """
     raise NotImplementedError
 

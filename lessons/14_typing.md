@@ -19,9 +19,7 @@ Type hints do not change how code runs. They are checked by tools:
 uv run ty check path/to/file.py
 ```
 
-## Basics
-
-> **ES:** ## Conceptos básicos
+## Basics / Conceptos básicos
 
 ```python
 def greet(name: str, times: int = 1) -> str:
@@ -63,9 +61,7 @@ if x is not None:
     x + 1  # fine, the type is narrowed to int
 ```
 
-## Generics (PEP 695)
-
-> **ES:** ## Genéricos (PEP 695)
+## Generics (PEP 695) / Genéricos (PEP 695)
 
 `[T]` after a function or class name declares a type variable.
 
@@ -99,9 +95,7 @@ makes aliases: `type Pair[T] = tuple[T, T]`.
 > **ES:** También puedes usar varias variables: `def group_by[K, V](...)`. La
 > sentencia `type` crea alias: `type Pair[T] = tuple[T, T]`.
 
-## Protocol: structural typing
-
-> **ES:** ## Protocol: tipado estructural
+## Protocol: structural typing / Protocol: tipado estructural
 
 A `Protocol` describes what an object can do. Any class with matching methods
 qualifies, with no inheritance needed ("duck typing", checked).
@@ -130,9 +124,7 @@ def chorus(speakers: list[Speaker]) -> str:
 chorus([Cat()])  # fine
 ```
 
-## TypedDict
-
-> **ES:** ## TypedDict
+## TypedDict / TypedDict
 
 Describes the keys and value types of a plain `dict`, common for JSON data.
 
@@ -156,9 +148,7 @@ At runtime it is still just a `dict`.
 
 > **ES:** En tiempo de ejecución sigue siendo simplemente un `dict`.
 
-## Literal
-
-> **ES:** ## Literal
+## Literal / Literal
 
 Restrict a value to specific constants.
 
@@ -176,9 +166,7 @@ def turn(d: Direction) -> None: ...
 turn("up")  # checker error
 ```
 
-## Gotchas
-
-> **ES:** ## Trampas comunes
+## Gotchas / Trampas comunes
 
 - Hints are not enforced at runtime. `greet(5)` still runs.
 - `list[int]` is not accepted where `list[float]` is expected, since lists are
@@ -196,9 +184,7 @@ turn("up")  # checker error
 > - Usa comillas (`"Vector"`) cuando una clase se refiere a sí misma dentro de
 >   su propio cuerpo, a menos que el nombre ya esté definido.
 
-## Exercises
-
-> **ES:** ## Ejercicios
+## Exercises / Ejercicios
 
 Files:
 

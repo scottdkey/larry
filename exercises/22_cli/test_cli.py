@@ -29,8 +29,12 @@ def test_repeat_default_and_short_option():
 
 
 def test_repeat_rejects_zero():
-    result = runner.invoke(app, ["repeat", "hi", "-n", "0"])
-    assert result.exit_code == 2
+    for option in ("-n", "--times"):
+        result = runner.invoke(app, ["repeat", "hi", option, "0"])
+        assert result.exit_code == 2
+        assert "No such option" not in result.output
+        assert "Usage:" not in result.output
+        assert result.output.strip()
 
 
 def test_stats():

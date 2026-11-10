@@ -52,6 +52,7 @@ def test_runs_as_script():
         [sys.executable, str(Path(modules.__file__)), "2", "3"],
         capture_output=True,
         text=True,
+        encoding="utf-8",
     )
     assert result.returncode == 0
     assert result.stdout.strip() == "total: 5"

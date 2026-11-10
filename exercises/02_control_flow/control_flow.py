@@ -41,6 +41,7 @@ def collatz_steps(n: int) -> int:
     """Count steps to reach 1: even -> n // 2, odd -> 3n + 1. collatz_steps(1) == 0.
 
     ES: Cuenta los pasos hasta llegar a 1: par -> n // 2, impar -> 3n + 1.
+    collatz_steps(1) == 0.
     """
     raise NotImplementedError
 

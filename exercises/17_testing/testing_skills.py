@@ -32,7 +32,7 @@ def slugify(text: str) -> str:
     slugify("  Hello,   World! ") == "hello-world"
     Only letters and digits count as word characters.
 
-    ES: Minúsculas, recorta y une las palabras con un solo guion. Solo las
+    ES: Pasa a minúsculas, recorta y une las palabras con un solo guion. Solo las
     letras y los dígitos cuentan como caracteres de palabra.
     """
     raise NotImplementedError

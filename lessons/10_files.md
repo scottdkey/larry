@@ -10,7 +10,7 @@ file code safely with `tmp_path`.
 
 `Path` objects replace string juggling with `os.path`:
 
-> **ES:** Los objetos `Path` reemplazan el malabarismo de cadenas con
+> **ES:** Los objetos `Path` reemplazan el manejo manual de cadenas de
 > `os.path`:
 
 ```python

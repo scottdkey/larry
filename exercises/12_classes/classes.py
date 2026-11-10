@@ -44,7 +44,7 @@ class Temperature:
 
 class Vector:
     """A 2D vector supporting +, ==, repr, len-free truthiness and abs().
-    ES: Un vector 2D con +, ==, repr, veracidad sin len y abs()."""
+    ES: Un vector 2D con +, ==, repr, valor de verdad (sin len) y abs()."""
 
     def __init__(self, x: float, y: float) -> None:
         raise NotImplementedError

@@ -187,7 +187,7 @@ def first_negative(numbers: list[int]) -> int | None:
 > - `range(5)` se detiene en 4, no en 5.
 > - No agregues ni quites elementos de una lista mientras la recorres; construye una lista nueva.
 > - Compara con `None` usando `is None`, no `== None`.
-> - Las cadenas `elif` se detienen en la primera coincidencia, así que el orden importa: revisa `n % 15` antes que `n % 3` en FizzBuzz.
+> - Las secuencias de `elif` se detienen en la primera coincidencia, así que el orden importa: revisa `n % 15` antes que `n % 3` en FizzBuzz.
 
 ## Exercises / Ejercicios
 

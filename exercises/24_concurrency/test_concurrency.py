@@ -57,15 +57,14 @@ def test_safe_counter_basic():
     assert c.value == 5
 
 
-def test_hammer_is_exact(monkeypatch):
-    monkeypatch.setattr(sys, "getswitchinterval", sys.getswitchinterval)
+def test_hammer_is_exact():
     before = threading.active_count()
     old = sys.getswitchinterval()
     sys.setswitchinterval(1e-6)
     try:
         c = SafeCounter()
-        hammer(c, threads=8, times=5000)
+        hammer(c, threads=8, times=100000)
     finally:
         sys.setswitchinterval(old)
-    assert c.value == 40000
+    assert c.value == 800000
     assert threading.active_count() == before

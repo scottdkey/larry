@@ -10,9 +10,7 @@ fields safe defaults, model fixed choices with `Enum`, and know when a
 > congelarlas, darles a los campos valores por defecto seguros, modelar
 > opciones fijas con `Enum`, y saber cuándo conviene un `NamedTuple`.
 
-## `@dataclass`
-
-> **ES:** ## `@dataclass`
+## `@dataclass` / `@dataclass`
 
 In lesson 12 you wrote `__init__`, `__repr__` and `__eq__` by hand. A dataclass
 generates them from annotated fields.
@@ -36,9 +34,7 @@ print(b)  # Book(title='Dune', author='Herbert', pages=100)
 print(b == Book("Dune", "Herbert"))  # True
 ```
 
-## Mutable defaults need `field`
-
-> **ES:** ## Los valores por defecto mutables necesitan `field`
+## Mutable defaults need `field` / Los valores por defecto mutables necesitan `field`
 
 ```python
 from dataclasses import dataclass, field
@@ -57,9 +53,7 @@ shared by every instance. `default_factory` calls `list()` per instance.
 > sería compartida por todas las instancias. `default_factory` llama a `list()`
 > por cada instancia.
 
-## Frozen (immutable) dataclasses
-
-> **ES:** ## Dataclasses frozen (inmutables)
+## Frozen (immutable) dataclasses / Dataclasses frozen (inmutables)
 
 ```python
 @dataclass(frozen=True)
@@ -78,9 +72,7 @@ Frozen instances are hashable, so they work in sets and as dict keys. To
 > **ES:** Las instancias frozen son hashables, así que funcionan en sets y como
 > claves de dict. Para "cambiar" una usa `dataclasses.replace(p, x=5)`.
 
-## Validation with `__post_init__`
-
-> **ES:** ## Validación con `__post_init__`
+## Validation with `__post_init__` / Validación con `__post_init__`
 
 ```python
 @dataclass
@@ -96,9 +88,7 @@ It runs right after the generated `__init__`.
 
 > **ES:** Se ejecuta justo después del `__init__` generado.
 
-## Enums
-
-> **ES:** ## Enums
+## Enums / Enums
 
 An `Enum` is a fixed set of named values.
 
@@ -133,9 +123,7 @@ match color:
         print("go")
 ```
 
-## NamedTuple
-
-> **ES:** ## NamedTuple
+## NamedTuple / NamedTuple
 
 A tuple whose positions have names. It is immutable and unpackable.
 
@@ -171,9 +159,7 @@ Choosing between them:
 > registro inmutable y hashable: `@dataclass(frozen=True)`; registro ligero y
 > compatible con tuple: `NamedTuple`; una opción de un conjunto fijo: `Enum`.
 
-## Gotchas
-
-> **ES:** ## Trampas comunes
+## Gotchas / Trampas comunes
 
 - Non-default fields cannot follow default fields.
 - Dataclass annotations are not enforced at runtime; `Book(1, 2)` works. Use a
@@ -190,9 +176,7 @@ Choosing between them:
 > - `frozen=True` es superficial: una dataclass frozen que contiene una list
 >   todavía permite modificar esa list.
 
-## Exercises
-
-> **ES:** ## Ejercicios
+## Exercises / Ejercicios
 
 Files:
 

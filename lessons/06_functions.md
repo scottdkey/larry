@@ -137,7 +137,7 @@ triple(5)  # 15
 
 To *rebind* an outer variable (not just read it), declare it `nonlocal`:
 
-> **ES:** Para *reasignar* una variable exterior (no solo leerla), decláralo `nonlocal`:
+> **ES:** Para *reasignar* una variable exterior (no solo leerla), declárala `nonlocal`:
 
 ```python
 def make_counter():

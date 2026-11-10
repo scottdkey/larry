@@ -18,7 +18,7 @@ class Event:
 def to_json(data: dict) -> str:
     """Serialize to JSON with sorted keys and 2-space indent.
 
-    ES: Serializa a JSON con llaves ordenadas y sangría de 2 espacios.
+    ES: Serializa a JSON con claves ordenadas y sangría de 2 espacios.
     """
     raise NotImplementedError
 
@@ -37,9 +37,11 @@ def read_csv_rows(text: str) -> list[dict[str, str]]:
 def write_csv(rows: list[dict[str, str | int]], fieldnames: list[str]) -> str:
     """Render rows as CSV text: header first, '\\n' line endings, in
     `fieldnames` order. Fields with commas or quotes must be quoted.
+    Hint: the csv module writes '\\r\\n' by default; pass lineterminator.
 
     ES: Genera texto CSV: encabezado primero, saltos '\\n', en el orden de
     `fieldnames`. Los campos con comas o comillas deben ir entre comillas.
+    Pista: csv escribe '\\r\\n' por defecto; usa lineterminator.
     """
     raise NotImplementedError
 

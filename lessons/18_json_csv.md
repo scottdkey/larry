@@ -55,7 +55,7 @@ data = json.loads(path.read_text())
 
 Gotchas:
 
-> **ES:** Errores comunes:
+> **ES:** Trampas comunes:
 
 - Tuples come back as lists. Sets, dates, `Path`, and dataclasses are not
   supported; `dumps` raises `TypeError`.
@@ -64,8 +64,8 @@ Gotchas:
 
 > **ES:**
 >
-> - Las tuplas regresan como listas. Los sets, las fechas, `Path` y los dataclasses no son compatibles; `dumps` lanza `TypeError`.
-> - Las llaves de un dict se vuelven cadenas: `{1: "a"}` regresa como `{"1": "a"}`.
+> - Los tuples regresan como lists. Los sets, las fechas, `Path` y las dataclasses no son compatibles; `dumps` lanza `TypeError`.
+> - Las claves de un dict se vuelven cadenas: `{1: "a"}` regresa como `{"1": "a"}`.
 > - La entrada inválida lanza `json.JSONDecodeError`, una subclase de `ValueError`.
 
 ### Handling types JSON does not know / Manejar tipos que JSON no conoce
@@ -87,7 +87,7 @@ raw["when"] = date.fromisoformat(raw["when"])
 ISO 8601 strings (`2024-03-05`) are the standard way to store dates. For
 dataclasses, `dataclasses.asdict(obj)` gives a plain dict first.
 
-> **ES:** Las cadenas ISO 8601 (`2024-03-05`) son la forma estándar de guardar fechas. Para los dataclasses, `dataclasses.asdict(obj)` te da primero un dict simple.
+> **ES:** Las cadenas ISO 8601 (`2024-03-05`) son la forma estándar de guardar fechas. Para las dataclasses, `dataclasses.asdict(obj)` te da primero un dict simple.
 
 ## CSV with the csv module / CSV con el módulo csv
 
@@ -108,7 +108,7 @@ for row in csv.DictReader(io.StringIO(text)):
 `DictReader` uses the header line for keys. **Every value is a string**, so
 convert numbers yourself (`int(row["age"])`).
 
-> **ES:** `DictReader` usa la línea de encabezado como llaves. **Todos los valores son cadenas**, así que convierte los números tú mismo (`int(row["age"])`).
+> **ES:** `DictReader` usa la línea de encabezado como claves. **Todos los valores son cadenas**, así que convierte los números tú mismo (`int(row["age"])`).
 
 Writing:
 
@@ -145,7 +145,7 @@ awkward values: commas, quotes, newlines, empty strings, unicode.
 
 > **ES:** Una prueba confiable para código de serialización es `decode(encode(x)) == x`. Incluye valores incómodos: comas, comillas, saltos de línea, cadenas vacías, unicode.
 
-## Gotchas / Errores comunes
+## Gotchas / Trampas comunes
 
 - CSV has no types; `"007"` becomes `7` if you convert, losing the zeros.
 - `json.dumps` of floats like `nan` produces non-standard JSON.

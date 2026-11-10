@@ -8,11 +8,9 @@ inheritance and composition.
 
 > **ES:** Objetivos: agrupar datos y comportamiento en una clase, controlar el
 > acceso a los atributos con properties, hacer que los objetos se sientan
-> nativos con métodos dunder, y elegir entre herencia y composición.
+> nativos con métodos dunder y elegir entre herencia y composición.
 
-## A first class
-
-> **ES:** ## Una primera clase
+## A first class / Una primera clase
 
 ```python
 class Counter:
@@ -40,9 +38,7 @@ print(c._value)  # 1
 > - Un guion bajo al inicio (`_value`) es una convención que significa
 >   "interno, por favor no lo toques". Python no lo impone.
 
-## Properties
-
-> **ES:** ## Properties (propiedades)
+## Properties / Properties (propiedades)
 
 A property looks like an attribute but runs code. Use it for read-only values
 or to validate/convert on assignment.
@@ -74,9 +70,7 @@ A property with no setter is read-only: assigning raises `AttributeError`.
 > **ES:** Una property sin setter es de solo lectura: asignarle un valor lanza
 > `AttributeError`.
 
-## Dunder methods
-
-> **ES:** ## Métodos dunder
+## Dunder methods / Métodos dunder
 
 "Dunder" means double underscore. They let your class plug into Python syntax.
 
@@ -118,9 +112,7 @@ don't understand; Python then tries the other side and falls back to `False`.
 > un tipo que no entiendes; Python entonces prueba el otro lado y, si tampoco
 > funciona, recurre a `False`.
 
-## Inheritance
-
-> **ES:** ## Herencia
+## Inheritance / Herencia
 
 A subclass reuses and overrides a parent's behavior.
 
@@ -158,9 +150,7 @@ class Puppy(Dog):
 > **ES:** `super()` llama a la versión de la clase padre.
 > `isinstance(Puppy("x"), Animal)` es `True`.
 
-## Composition
-
-> **ES:** ## Composición
+## Composition / Composición
 
 Inheritance says "is a". Composition says "has a": store another object in an
 attribute and delegate to it.
@@ -183,13 +173,11 @@ A `Car` is not an `Engine`, so it should not inherit from one. Prefer
 composition by default; reach for inheritance only for a real "is a"
 relationship, and keep hierarchies shallow.
 
-> **ES:** Un `Car` no es un `Engine`, así que no debería heredar de uno. Prefiere
-> la composición por defecto; usa herencia solo para una relación real de "es
-> un", y mantén las jerarquías poco profundas.
+> **ES:** Un `Car` no es un `Engine`, así que no debería heredar de uno.
+> Prefiere la composición por defecto; usa la herencia solo para una relación
+> real de "es un", y mantén las jerarquías poco profundas.
 
-## Gotchas
-
-> **ES:** ## Trampas comunes
+## Gotchas / Trampas comunes
 
 - Forgetting `self` as the first parameter gives a confusing "takes 1
   positional argument but 2 were given" error.
@@ -210,16 +198,17 @@ relationship, and keep hierarchies shallow.
 >   (no se pueden usar en sets ni como claves de dict).
 > - No abuses de las clases: a menudo basta con una función simple.
 
-## Exercises
-
-> **ES:** ## Ejercicios
+## Exercises / Ejercicios
 
 Files:
 
 - Stubs: `exercises/12_classes/classes.py`
 - Tests: `exercises/12_classes/test_classes.py`
 
-> **ES:** Archivos: los stubs y los tests indicados arriba.
+> **ES:** Archivos:
+>
+> - Stubs: `exercises/12_classes/classes.py`
+> - Pruebas: `exercises/12_classes/test_classes.py`
 
 Implement `Counter`, `Temperature`, `Vector`, `Animal`/`Dog`/`Puppy`, and
 `Engine`/`Car`. Run:

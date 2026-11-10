@@ -35,7 +35,8 @@ def truncate(text: str, width: int) -> str:
 def caesar(text: str, shift: int) -> str:
     """Shift ASCII letters by `shift` (wrapping, case kept); leave others alone.
 
-    ES: Desplaza las letras ASCII `shift` posiciones (con vuelta, conserva mayúsculas).
+    ES: Desplaza las letras ASCII `shift` posiciones (cíclico, conserva mayúsculas).
+    Los demás caracteres no se tocan.
     """
     raise NotImplementedError
 
